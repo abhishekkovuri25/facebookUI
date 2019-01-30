@@ -1,5 +1,5 @@
 <template>
-        <div>
+        <div style="margin-top:7%;">
              <div>
                 <b-card
                     tag="article"
