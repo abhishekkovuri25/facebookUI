@@ -2,6 +2,7 @@
   <div class="body">
     <router-view></router-view>
     <Header></Header>
+
     <b-container class="text-center">
       <b-card
         title="Card Title"
