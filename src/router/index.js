@@ -16,8 +16,8 @@ export default new Router({
   routes: [
     {
       path: '/login',
-      name : 'login',
-      component : Login
+      name: 'login',
+      component: Login
     },
     {
       path: '/profile',
@@ -32,7 +32,17 @@ export default new Router({
     {
       path: '/othersprofile',
       name: 'OthersProfile',
-      component : OthersProfile
+      component: OthersProfile
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: OthersProfile
+    },
+    {
+      path: '/othersprofile/:userId',
+      name: 'OthersProfile',
+      component: OthersProfile
     }
   ]
 })

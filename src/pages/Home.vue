@@ -2,13 +2,13 @@
     <div>
     <Header></Header>
     <upload></upload>
-    <post-body></post-body>
+    <home-post></home-post>
     </div>
 </template>
 
 
 <script>
-import PostBody from '@/components/PostBody'
+import HomePost from '@/components/HomePost'
 import Upload from '@/components/Upload'
 import Header from '@/components/Header'
 
@@ -17,7 +17,7 @@ export default {
     components : { 
     Header,
     Upload,
-    PostBody
+    HomePost
     }
 }
 </script>
