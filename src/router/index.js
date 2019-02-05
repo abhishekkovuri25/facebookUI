@@ -7,6 +7,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import Login from '@/pages/Login'
 import Profile from '@/pages/Profile'
 import Home from '@/pages/Home'
+import Search from '@/components/Search'
 import OthersProfile from '@/pages/OthersProfile'
 
 Vue.use(BootstrapVue)
@@ -30,14 +31,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/othersprofile',
-      name: 'OthersProfile',
-      component: OthersProfile
-    },
-    {
-      path: '/search',
-      name: 'search',
-      component: OthersProfile
+      path: '/Search/:qname',
+      name: 'Search',
+      component: Search
     },
     {
       path: '/othersprofile/:userId',

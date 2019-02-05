@@ -70,25 +70,27 @@
                     })
                     .then(response => {
                         localStorage.setItem("authId", response.data.Authorization);
-                        this.$router.push('/home')
+                        axios
+                            .get("http://10.177.7.82:8080/users/getData?userName=" + this.emailId, {
+                                headers: {
+                                    Authorization: localStorage.getItem("authId")
+                                }
+                            })
+                            .then(response => {
+                                this.$router.push('/home')
+                                console.log(response.data);
+                                localStorage.setItem("name", JSON.stringify(response.data));
+                            })
+                            .catch(response => {
+                                console.log("error response");
+                            });
+                                
 
-                    })
-                    .catch(response => {
-                        document.getElementById("invalid").innerHTML = "* Unauthorized user credentials";
-                    });
-                axios
-                    .get("http://10.177.7.82:8080/users/getData?userName=" + this.emailId, {
-                        headers: {
-                            Authorization: localStorage.getItem("authId")
-                        }
-                    })
-                    .then(response => {
-                        console.log(response.data);
-                        localStorage.setItem("name", JSON.stringify(response.data));
-                    })
-                    .catch(response => {
-                        console.log("error response");
-                    });
+                        })
+                        .catch(response => {
+                            document.getElementById("invalid").innerHTML = "* Unauthorized user credentials";
+                        });
+               
             }
         }
     };

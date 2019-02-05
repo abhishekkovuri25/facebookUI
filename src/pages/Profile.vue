@@ -15,7 +15,7 @@
         name: "Profile",
         data() {
             return {
-                userList: [],
+                userList: {},
                 followerList: [],
                 followList: [],
                 postList: [],
@@ -24,7 +24,7 @@
         },
         mounted() {
             // var userid = name.userId
-            console.log("hi");
+            console.log("hi"+this.name.userId);
             fetch("http://10.177.7.124:8081/userProfile/getUser/" + this.name.userId).then(response => {
                 return response.json();
             }).then(data => {
@@ -32,6 +32,7 @@
                 
                 console.log(data);
                 this.userList = data;
+                console.log("hii"+this.userList);
 
             }).catch(err => {
                 console.log(err)

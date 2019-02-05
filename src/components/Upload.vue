@@ -174,12 +174,15 @@
 
                     var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                     console.log('Upload is ' + progress + '% done');
+                    alert('Upload is '+progress+'% done');
                     switch (snapshot.state) {
                         case firebase.storage.TaskState.PAUSED: // or 'paused'
                             console.log('Upload is paused');
+                            //alert('Upload is paused');
                             break;
                         case firebase.storage.TaskState.RUNNING: // or 'running'
                             console.log('Upload is running');
+                            //alert('Upload is running');
                             break;
                     }
                 }, function (error) {
@@ -202,8 +205,10 @@
                     type: "Text",
                     description: this.message
                 }).then(response => {
+                    alert('post is sucessfully uploaded');
                     console.log(response.data);
                 })
+                hideText();
             },
             postImage() {
                 console.log()
@@ -213,8 +218,10 @@
                     type: "Image",
                     description: this.message
                 }).then(response => {
+                    alert('post is sucessfully uploaded');
                     console.log(response.data);
                 })
+                hideImage();
             },
             postVideo() {
                 axios.post('http://10.177.7.137:8080/post/add', {
@@ -223,8 +230,10 @@
                     type: "Video",
                     description: this.message
                 }).then(response => {
+                    alert('post is sucessfully uploaded');
                     console.log(response.data);
                 })
+                hideVideo();
             }
         }
     }

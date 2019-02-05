@@ -37,7 +37,7 @@
           <div class="form-group">
             <input type="file" id="file" v-on:change="onImageChange" ref="fileName" />
           </div>
-          <button @click="myFunction1(name.userId,name.about,name.username)" id="save" type="submit" class="btn btn-info">Save</button>
+          <button @click="myFunction1(name.userId,about,username)" id="save" type="submit" class="btn btn-info">Save</button>
         </div>
       </div>
       <b-dd-divider></b-dd-divider>
@@ -90,8 +90,10 @@
         url: '',
         Interests: '',
         DOB: '',
+        about:"hii",
         username:JSON.parse(localStorage.getItem("name")).name,
-        name:JSON.parse(localStorage.getItem("name"))
+        name:JSON.parse(localStorage.getItem("name")),
+        dob:''
       }
     },
 
@@ -106,6 +108,8 @@
 
       },
       myFunction1(id, ab, name) {
+        //alert("hii");
+        console.log("Interests"+this.Interests+name+ab+this.DOB);
         var x = document.getElementById("image");
         if(myImageUrl==null||this.Interests==""||this.DOB==""){
           myImageUrl=this.userList.userImageURL;
@@ -128,11 +132,12 @@
           })
         })
           .then(function (response) {
+            console.log("Interests"+name+ab);
             //console.log(this.userList.about);
             return response.json();
           })
           .then(function (data) {
-           window.location.reload();
+           //window.location.reload();
           });
         x.style.display = "none";
       },
